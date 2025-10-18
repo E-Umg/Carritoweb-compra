@@ -1,6 +1,12 @@
 package com.carritoCompra.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)   // enumera automaticamente
     private Integer id;
     private String Nombre;
     private String usuario;

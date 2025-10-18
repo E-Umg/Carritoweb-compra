@@ -1,8 +1,12 @@
 package com.carritoCompra.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
+@Table (name="productos")
 
 public class Producto {
     @Getter
@@ -23,7 +27,9 @@ public class Producto {
     @Getter
     @Setter
     private int cantidad;
-
+    @Getter
+    @Setter
+    private Usuario usuario;
 //----------------contructores---------------
     public Producto() {
     }

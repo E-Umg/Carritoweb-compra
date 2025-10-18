@@ -23,6 +23,8 @@ public class DetalleInventario {
     @Setter
     private double total;
 
+
+
     //----------------contructores---------------
     public DetalleInventario() {
     }

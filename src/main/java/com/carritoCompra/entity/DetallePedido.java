@@ -1,12 +1,9 @@
 package com.carritoCompra.entity;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
-public class DetalleInventario {
+public class DetallePedido {
     @Getter
     @Setter
     private Integer id;
@@ -26,10 +23,10 @@ public class DetalleInventario {
 
 
     //----------------contructores---------------
-    public DetalleInventario() {
+    public DetallePedido() {
     }
 
-    public DetalleInventario(Integer id, String nombre, double cantidad, double precio, double total) {
+    public DetallePedido(Integer id, String nombre, double cantidad, double precio, double total) {
         this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;

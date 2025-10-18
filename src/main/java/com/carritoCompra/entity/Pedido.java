@@ -5,7 +5,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-public class Inventario {
+public class Pedido {
     @Getter
     @Setter
     private Integer id;
@@ -25,10 +25,10 @@ public class Inventario {
 
     //----------------contructores---------------
 
-    public Inventario() {
+    public Pedido() {
     }
 
-    public Inventario(Integer id, String numero, Date fechaCreacion, Date fechaRecibida, double totol) {
+    public Pedido(Integer id, String numero, Date fechaCreacion, Date fechaRecibida, double totol) {
         this.id = id;
         this.numero = numero;
         this.fechaCreacion = fechaCreacion;

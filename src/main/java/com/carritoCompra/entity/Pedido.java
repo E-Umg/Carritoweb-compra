@@ -1,11 +1,16 @@
 package com.carritoCompra.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-
+@Entity
+@Table(name="pedidos")
 public class Pedido {
+
+    @Id
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Getter
     @Setter
     private Integer id;
@@ -21,7 +26,15 @@ public class Pedido {
     @Getter
     @Setter
     private double total;
-
+    //-----------conecxiones de tablas----------------------------
+    @Getter
+    @Setter
+    @ManyToOne
+    private Usuario usuario;
+    @Getter
+    @Setter
+    @OneToOne (mappedBy = "pedido")
+    private DetallePedido detalle;
 
     //----------------contructores---------------
 

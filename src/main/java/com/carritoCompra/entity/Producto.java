@@ -1,7 +1,6 @@
 package com.carritoCompra.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +8,9 @@ import lombok.Setter;
 @Table (name="productos")
 
 public class Producto {
+
+    @Id
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Getter
     @Setter
     private Integer id;
@@ -23,28 +25,35 @@ public class Producto {
     private String imagen;
     @Getter
     @Setter
-    private String precio;
+    private double precio;
     @Getter
     @Setter
     private int cantidad;
+
+    //-----------conecxiones de tablas----------------------------
+    @ManyToOne
     @Getter
     @Setter
     private Usuario usuario;
-//----------------contructores---------------
+
+
+    //----------------contructores---------------
     public Producto() {
     }
 
-    public Producto(Integer id, String nombre, String descripcion, String precio, String imagen, int cantidad) {
+    public Producto(Integer id, String nombre, String descripcion, String imagen, double precio, int cantidad, Usuario usuario) {
+        super();
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.precio = precio;
         this.imagen = imagen;
+        this.precio = precio;
         this.cantidad = cantidad;
+        this.usuario = usuario;
     }
 
-    //----------------Tostring------------
 
+    //----------------Tostring------------
     @Override
     public String toString() {
         return "Producto{" +
@@ -52,8 +61,11 @@ public class Producto {
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", imagen='" + imagen + '\'' +
-                ", precio='" + precio + '\'' +
+                ", precio=" + precio +
                 ", cantidad=" + cantidad +
+                ", usuario=" + usuario +
                 '}';
+
     }
 }
+

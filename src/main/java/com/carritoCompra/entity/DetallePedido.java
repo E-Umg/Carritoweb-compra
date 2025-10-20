@@ -1,9 +1,13 @@
 package com.carritoCompra.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
+@Entity
+@Table(name="detalles")
 public class DetallePedido {
+    @Id
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Getter
     @Setter
     private Integer id;
@@ -19,7 +23,15 @@ public class DetallePedido {
     @Getter
     @Setter
     private double total;
-
+    //-----------conecxiones de tablas----------------------------
+    @Getter
+    @Setter
+    @ManyToOne
+    private Producto producto;
+    @Getter
+    @Setter
+    @OneToOne
+    private Pedido pedido;
 
 
     //----------------contructores---------------

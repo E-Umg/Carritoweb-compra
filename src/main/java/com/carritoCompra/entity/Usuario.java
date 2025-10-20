@@ -2,6 +2,8 @@ package com.carritoCompra.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
@@ -15,6 +17,15 @@ public class Usuario {
     private String telefono;
     private String tipo;
     private String password;
+
+    //-----------conecxiones de tablas----------------------------
+    @OneToMany(mappedBy = "usuario")
+    private List<Producto> productos;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Pedido> pedidos;
+
+
 //--------------------Contructor--------------------------------//
 
     public Usuario() {
@@ -30,6 +41,8 @@ public class Usuario {
         this.telefono = telefono;
         this.tipo = tipo;
         this.password = password;
+
+
     }
 //--------------------------ToString-------------------------------//
 
@@ -113,5 +126,19 @@ public class Usuario {
         this.telefono = telefono;
     }
 
+    public List<Producto> getProductos() {
+        return productos;
+    }
 
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 }
